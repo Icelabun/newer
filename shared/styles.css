@@ -142,6 +142,9 @@ body::before {
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
+  position: relative;
+  width: 30px;
+  height: 30px;
 }
 
 .mobile-menu-btn span {
@@ -151,7 +154,14 @@ body::before {
   background-color: var(--text);
   margin: 5px 0;
   transition: all 0.3s ease;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
+.mobile-menu-btn span:nth-child(1) { top: 25%; }
+.mobile-menu-btn span:nth-child(2) { top: 50%; }
+.mobile-menu-btn span:nth-child(3) { top: 75%; }
 
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
@@ -171,6 +181,9 @@ body::before {
     align-items: center;
     transition: right 0.3s ease;
     backdrop-filter: blur(var(--nav-blur));
+    display: flex !important;
+    gap: 2rem;
+    padding-top: 4rem;
   }
 
   .nav-links.active {
