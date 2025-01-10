@@ -9,62 +9,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: #f0f0f0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .hero {
+            background-color: #3498db;
+            color: white;
         }
         .contact-form {
-            background: rgba(95, 159, 233, 0.9);
+            background: #ffffff;
             border-radius: 15px;
-            box-shadow: 0 8px 32px 0 rgba(3, 4, 15, 0.37);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(59, 38, 38, 0.18);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
             transition: all 0.3s ease;
         }
         .contact-form:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
         .form-group {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         .form-group i {
             position: absolute;
             left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            color: #666;
+            color: #4a4a4a;
+            transition: all 0.3s ease;
         }
         .form-group input,
         .form-group textarea {
-            padding-left: 40px;
-            border-radius: 25px;
-            border: 1px solid #ddd;
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
             transition: all 0.3s ease;
+            color: #333;
         }
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: #4CAF50;
-            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        .form-group input:focus + i,
+        .form-group textarea:focus + i {
+            color: #3498db;
         }
         .btn {
-            background-color: #4CAF50;
+            background-color: #3498db;
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .btn:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .card h2 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
+    <!-- Rest of the HTML remains the same -->
+</body>
+</html>
+<body>
     <nav class="nav-container">
         <div class="nav">
-            <a  href="../index.html" class="nav-logo">MY PORTFOLIO</a>
+            <a href="../index.html" class="nav-logo">MY PORTFOLIO</a>
             <ul class="nav-links">
                 <li><a href="../bio/biography.html" class="nav-link">Biography</a></li>
                 <li><a href="../pro/projects.html" class="nav-link">Projects</a></li>
@@ -77,43 +124,42 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">Get in Touch</h1>
-                <p class="hero-subtitle">Let's create something amazing together</p>
+                <h1 class="hero-title animate-fadeInUp">Get in Touch</h1>
+                <p class="hero-subtitle animate-fadeInUp">Let's create something amazing together</p>
             </div>
         </section>
 
         <section class="section container">
-            <div class="contact-form">
-                <form id="contact-form">
+            <div class="contact-form animate-fadeInUp">
+                <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
                     <div class="form-group">
-                        <i class="fas fa-user"></i>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <i class="fas fa-user"></i>
                     </div>
                     <div class="form-group">
-                        <i class="fas fa-envelope"></i>
                         <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <i class="fas fa-envelope"></i>
                     </div>
                     <div class="form-group">
-                        <i class="fas fa-comment"></i>
                         <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <i class="fas fa-comment"></i>
                     </div>
                     <button type="submit" class="btn" id="submit">Send Message</button>
                 </form>
-
             </div>
         </section>
 
         <section class="section container">
             <div class="grid">
-                <div class="card">
+                <div class="card animate-fadeInUp">
                     <h2>Email</h2>
                     <p>samuelnebiyu88@gmail.com</p>
                 </div>
-                <div class="card">
+                <div class="card animate-fadeInUp">
                     <h2>Phone</h2>
                     <p>+251983180167</p>
                 </div>
-                <div class="card">
+                <div class="card animate-fadeInUp">
                     <h2>Location</h2>
                     <p>Addis Ababa, Ethiopia</p>
                 </div>
@@ -139,3 +185,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
