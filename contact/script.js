@@ -1,12 +1,21 @@
-function sendemail(event){
-    console.log(document.getElementsByName("name"))
-    const username = document.getElementsByName("name")[0].value
-    const email = document.getElementsByName("email")[0].value
-    const message = document.getElementById("message").value
-    const link = document.createElement('a')
-    link.href = "mailto:samuelnebiyu88@gmail.com?subject="+username+"&body="+encodeURIComponent(message)
-link.target = "_blank"
-link.click()
+function sendemail(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Create the email link
+    const mailtoLink = `mailto:samuelnebiyu88@gmail.com?subject=Contact from ${username}&body=${encodeURIComponent(message)}%0A%0AReply to: ${email}`;
+
+    // Open the email client
+    window.location.href = mailtoLink;
+
+    // Clear the form
+    document.getElementById("contact-form").reset();
+
+    // Show a success message
+    alert("Thank you for your message! Your email client should open shortly.");
 }
 
-document.getElementById('submit').addEventListener('click', sendemail)
+document.getElementById('contact-form').addEventListener('submit', sendemail);
